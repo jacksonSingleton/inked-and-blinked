@@ -1,0 +1,40 @@
+---
+export type MenuLink = {
+    title: string;
+    url?: string;
+};
+
+export type DropdownMenu = {
+    title: string;
+    children?: MenuLink[];
+};
+
+export interface Props {
+    title: string;
+    link?: string;
+    children?: MenuLink[];
+}
+
+const { title, link, children } = Astro.props;
+---
+
+{
+    link && (
+        <a href={link} class="font-serif hover:text-pink-900 text-xl">
+            <h3>{title}</h3>
+        </a>
+    )
+}
+
+{
+    children && (
+        <div class="font-serif text-xl">
+            <h3>{title}</h3>
+            <div class="hidden hover:text-pink-900">
+                {
+                    children.map((child) => <a href={child.url}>{child.title}</a>)
+                }
+            </div>
+        </div>
+    )
+}
