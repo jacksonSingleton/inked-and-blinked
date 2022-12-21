@@ -15,11 +15,11 @@ export interface IProps {
     title: string;
     url?: string;
     children?: MenuLink[];
-    onHover?: (items: MenuLink[]) => void;
+    onHover: (items?: MenuLink[]) => void;
 }
 
 export default function MenuItem(props: IProps) {
-    const { title, url, children } = props;
+    const { title, url, children, onHover } = props;
     const [isOpen, setIsOpen] = React.useState(false);
     return (
         <div>
@@ -27,6 +27,7 @@ export default function MenuItem(props: IProps) {
                 <a
                     href={url}
                     className="font-sans uppercase text-gray-900 hover:text-pink-900 text-3xl"
+                    onMouseEnter={() => onHover()}
                 >
                     <h3>{title}</h3>
                 </a>

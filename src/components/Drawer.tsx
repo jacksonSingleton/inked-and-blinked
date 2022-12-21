@@ -1,16 +1,25 @@
-import React from 'react'
-import { MenuLink } from './atoms/MenuItem'
+import React from "react";
+import type { MenuLink } from "./atoms/MenuItem";
+import clsx from "clsx";
 
 interface IProps {
-    items: MenuLink[]
+  items: MenuLink[];
 }
 
 export default function Drawer(props: IProps) {
-    return (
-        <ul>
-            {items.map((item, index) => {
-                return <li key={index}>{item.title}</li>
-            }}
-        </ul>
-    )
+  const { items } = props;
+
+  const classList = ["flex flex-col absolute bg-gray-900 w-full p-4 -z-10"] 
+
+  return (
+    <ul className={clsx(classList)}>
+      {items.map((item, index) => {
+        return (
+          <li key={index} className="text-lg text-pink-100 uppercase hover:text-pink-200">
+            <a href={item.url}>{item.title}</a>
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
