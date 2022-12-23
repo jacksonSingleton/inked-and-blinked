@@ -26,15 +26,15 @@ export default function MenuItem(props: IProps) {
             {url && (
                 <a
                     href={url}
-                    className="font-sans uppercase text-gray-900 hover:text-pink-900 text-3xl"
+                    className="font-sans uppercase text-gray-100 hover:text-pink-200 text-2xl"
                     onMouseEnter={() => onHover()}
                 >
                     <h3>{title}</h3>
                 </a>
             )}
             {children && (
-                <div className="font-sans uppercase text-3xl" onMouseEnter={() => onHover(children)}>
-                    <h3 className="hover:text-pink-900 text-gray-900 cursor-pointer">
+                <div className="font-sans uppercase text-2xl" onMouseEnter={() => onHover(children)}>
+                    <h3 className="hover:text-pink-200 text-gray-100 cursor-pointer">
                         {title}
                     </h3>
                 </div>

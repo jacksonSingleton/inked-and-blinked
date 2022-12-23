@@ -9,14 +9,14 @@ interface IProps {
 export default function Drawer(props: IProps) {
   const { items } = props;
 
-  const classList = ["flex flex-col absolute bg-gray-900 w-full p-4 -z-10"] 
+  const classList = ["flex flex-col absolute bg-pink-100 w-full p-4"] 
 
   return (
     <ul className={clsx(classList)}>
       {items.map((item, index) => {
         return (
-          <li key={index} className="text-lg text-pink-100 uppercase hover:text-pink-200">
-            <a href={item.url}>{item.title}</a>
+          <li key={index} className="py-2">
+            <a href={item.url} className="text-xl text-gray-900 uppercase hover:text-pink-900 font-bold">{item.title}</a>
           </li>
         );
       })}
